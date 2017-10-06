@@ -1,0 +1,21 @@
+.console {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  color: #333333;
+  height: 500px;
+  overflow: auto;
+}
+
+.clear-button {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: #dddddd;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.clear-button:active {
+  opacity: 0.7;
+}

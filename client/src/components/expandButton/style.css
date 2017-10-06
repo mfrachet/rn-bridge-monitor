@@ -1,0 +1,11 @@
+.expanded-button {
+  cursor: pointer;
+}
+
+.expanded-button-item {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  margin-right: 15px;
+}

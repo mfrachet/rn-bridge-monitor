@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.bg-light {
+  background-color: #f4f4f4;
+}
+
+.bg-primary {
+  background-color: #00d1b2;
+  color: #ffffff;
+}
+
+.bg-secondary {
+  background-color: #3f51b5;
+  color: #ffffff;
+}
+
+.secondary {
+  color: #3f51b5;
+}
+
+.m-t {
+  margin-top: 10px;
+}
+
+.m-l {
+  margin-left: 10px;
+}
+
+.m-r {
+  margin-right: 10px;
+}
+
+.little-size {
+  font-size: 10px;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.toNative {
+  color: #8bc34a;
+}
+
+.toJS {
+  color: #ff9800;
+}
+
+.bg-to-native {
+  background-color: #8bc34a;
+}
+
+.bg-to-js {
+  background-color: #ff9800;
+}
+
+.padding {
+  padding: 10px;
+}

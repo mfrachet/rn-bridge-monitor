@@ -1,0 +1,10 @@
+.pagination-selected {
+  background-color: red;
+}
+
+.page {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #f4f4f4;
+}

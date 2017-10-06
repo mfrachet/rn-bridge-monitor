@@ -1,0 +1,49 @@
+.tree-view-item {
+  margin-left: 20px;
+}
+
+.tree-line {
+  background-color: #e3f2fd;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.props {
+  background-color: #fffde7;
+  padding: 10px;
+  border-left: 3px solid #fff9c4;
+}
+
+.element {
+  font-weight: bold;
+  color: #6a1b9a;
+}
+
+.attr {
+  color: #303f9f;
+  font-style: italic;
+}
+
+.m-r {
+  margin-right: 10px;
+}
+
+.identifier {
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: #ffffff;
+}
+
+.key {
+  font-weight: bold;
+  color: #ffa000;
+}
+
+.text-value.attr {
+  color: #00d1b2;
+  font-weight: bold;
+}
+
+.focused {
+  background-color: #ffecb3;
+}
