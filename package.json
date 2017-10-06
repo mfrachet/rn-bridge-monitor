@@ -1,0 +1,9 @@
+{
+  "name": "rn-bridge-monitor",
+  "version": "0.0.1",
+  "description": "Bridge messages monitoring made easy",
+  "main": "index.js",
+  "author": "mfrachet <marvin.frachet@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
