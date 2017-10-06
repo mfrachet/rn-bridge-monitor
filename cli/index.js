@@ -1,13 +1,19 @@
 #!/usr/bin/env node
-const program = require("commander");
 const packageJson = require("./package.json");
-const open = require("opn");
+const startServer = require("./server");
+const yargs = require("yargs");
 
-program
-  .version(packageJson.version)
-  .option("start", "start the Web UI")
-  .parse(process.argv);
+const DEFAULT_PORT = 5000;
 
-if (program.start) {
-  console.log("Server is starting...");
-}
+const defineOptions = args => {
+  args.option("p", {
+    describe: "The port to be used while running the web/socket server",
+    default: DEFAULT_PORT
+  });
+};
+
+const playCommand = argv => {
+  startServer(argv.p);
+};
+
+yargs.command("start", "start the server", defineOptions, playCommand).argv;

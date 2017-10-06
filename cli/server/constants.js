@@ -1,6 +1,3 @@
-const Constants = {
-  SOCKET_PREFIX: "rn-bridge-monitor",
-  PORT: 5000
+module.exports = {
+  SOCKET_PREFIX: "rn-bridge-monitor"
 };
-
-module.exports = Constants;

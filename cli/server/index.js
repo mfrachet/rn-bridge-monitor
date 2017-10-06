@@ -2,35 +2,46 @@ const ioX = require("socket.io-client");
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
+const path = require("path");
+const open = require("opn");
 const ModuleContainer = require("./domain/modules/ModuleContainer");
 const Controller = require("./application/socketController");
 const Constants = require("./constants");
-const path = require("path");
-const open = require("opn");
+const { log, logWarn, logImportant } = require("./application/log");
 
-// Setup
-const app = express();
-const server = http.Server(app);
-const io = socketIo(server);
-const controller = new Controller(new ModuleContainer());
+const title = `
+`;
 
-// Web
-app.use(express.static(path.resolve(__dirname, "../client", "build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
-});
+function startServer(port = Constants.PORT) {
+  // Setup
+  const app = express();
+  const server = http.Server(app);
+  const io = socketIo(server);
+  const controller = new Controller(new ModuleContainer());
 
-// Socket
-io.on("connection", socket => {
-  console.log("a user connected");
-  const handleCommands = command => controller.handleCommand(command, io);
+  // Web
+  app.use(express.static(path.resolve(__dirname, "../client", "build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
+  });
 
-  socket.on(Constants.SOCKET_PREFIX, handleCommands);
-  socket.on(`${Constants.SOCKET_PREFIX}-module-tree`, handleCommands);
-  socket.on("disconnect", () => io.emit("user-disconnection"));
-});
+  // Socket
+  io.on("connection", socket => {
+    log("Socket.connection", `${socket.id} has just connected`);
+    const handleCommands = command => controller.handleCommand(command, io);
+    socket.on(Constants.SOCKET_PREFIX, handleCommands);
+    socket.on(`${Constants.SOCKET_PREFIX}-module-tree`, handleCommands);
+    socket.on("disconnect", () => {
+      logWarn("Socket.disconnect", `${socket.id} has just disconnected`);
+      io.emit("user-disconnection");
+    });
+  });
 
-server.listen(Constants.PORT, () => {
-  console.log("Server sarted");
-  open(`http://localhost:${Constants.PORT}`);
-});
+  server.listen(port, () => {
+    console.log(title);
+    logImportant("Server", "started on port", port);
+    open(`http://localhost:${port}`);
+  });
+}
+
+module.exports = startServer;
