@@ -1,5 +1,4 @@
-import Rx from "rx"
-import BridgeMonitor, { SocketWriter } from "./lib";
+import BridgeMonitor, { SocketWriter as SocketWrite } from "./lib";
 
-export SocketWriter;
+export const SocketWriter = SocketWrite;
 export default BridgeMonitor;
