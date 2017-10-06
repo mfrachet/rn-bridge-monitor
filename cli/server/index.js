@@ -12,7 +12,7 @@ function startServer(port = Constants.PORT) {
   // Setup
   const app = express();
   const server = http.Server(app);
-  const io = socketIo(server);
+  const io = socketIo(server, { pingTimeout: 30000 });
   const controller = new Controller(new ModuleContainer());
 
   // Web

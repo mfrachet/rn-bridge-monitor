@@ -17,8 +17,7 @@ const legend = [
   },
 ];
 
-export default function PageTreeView() {
-  const { modules } = this.props;
+export default function PageTreeView({ modules }) {
   return (
     <Container>
       <Section>
