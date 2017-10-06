@@ -6,8 +6,14 @@ const log = (categ, message) => {
 };
 
 const logWarn = (categ, message) => {
-  const coloredCateg = chalk.red(`[${categ}] `);
+  const coloredCateg = chalk.yellow(`[${categ}] `);
   console.log(coloredCateg + message);
+};
+
+const logError = (categ, message, e) => {
+  const coloredCateg = chalk.bgRed(`[${categ}]`);
+  const coloredMessage = chalk.red(message);
+  console.log(`${coloredCateg} ${coloredMessage} ${e}`);
 };
 
 const logImportant = (categ, message, focus) => {
@@ -20,4 +26,5 @@ module.exports = {
   log,
   logWarn,
   logImportant,
+  logError,
 };
