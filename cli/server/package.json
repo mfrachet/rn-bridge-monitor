@@ -6,9 +6,9 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "socket.io": "^2.0.3",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
-    "object-sizeof": "^1.2.0"
+    "object-sizeof": "^1.2.0",
+    "socket.io": "^2.0.3"
   }
 }

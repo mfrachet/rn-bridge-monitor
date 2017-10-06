@@ -1,18 +1,5 @@
-import Rx from "rx";
-import BridgeMonitor from "./lib/BridgeMonitor";
-import SocketWrite from "./lib/SocketWriter";
+import Rx from "rx"
+import BridgeMonitor, { SocketWriter } from "./lib";
 
-export const SocketWriter = SocketWrite;
-const defaultConfig = {
-  exclude: ["WebSocketModule"]
-};
-
-export default class RnBridgeMonitor {
-  static prepareMobile(MessageQueue, config = {}) {
-    const source = Rx.Observable.create(observer => {
-      MessageQueue.spy(observer.onNext.bind(observer));
-    });
-    const realConfig = { ...defaultConfig, ...config };
-    return new BridgeMonitor(source, realConfig);
-  }
-}
+export SocketWriter;
+export default BridgeMonitor;
