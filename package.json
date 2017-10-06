@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Bridge messages monitoring made easy",
   "main": "index.js",
+  "bin": {
+    "rnbridgemonitor": "./cli/index.js"
+  },
   "author": "mfrachet <marvin.frachet@gmail.com>",
   "license": "MIT"
 }
