@@ -1,6 +1,6 @@
 import Rx from "rx";
-import BridgeMonitor from "./BridgeMonitor";
-import SocketWrite from "./shared/SocketWriter";
+import BridgeMonitor from "./lib/BridgeMonitor";
+import SocketWrite from "./lib/SocketWriter";
 
 export const SocketWriter = SocketWrite;
 const defaultConfig = {

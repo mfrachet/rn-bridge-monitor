@@ -1,12 +1,16 @@
 {
-  "name": "client",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "description": "Web client for bridge messages monitor",
+  "main": "index.js",
+  "author": "mfrachet <marvin.frachet@gmail.com>",
+  "license": "MIT",
+  "private": false,
   "dependencies": {
     "bulma": "^0.5.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.13"
+    "react-scripts": "1.0.13",
+    "socket.io-client": "^2.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

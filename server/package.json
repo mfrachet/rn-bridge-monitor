@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "description": "Server for bridge messages monitor",
+  "main": "index.js",
+  "author": "mfrachet <marvin.frachet@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "socket.io": "^2.0.3",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "object-sizeof": "^1.2.0"
+  }
+}

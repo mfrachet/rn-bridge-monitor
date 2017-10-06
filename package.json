@@ -4,6 +4,5 @@
   "description": "Bridge messages monitoring made easy",
   "main": "index.js",
   "author": "mfrachet <marvin.frachet@gmail.com>",
-  "license": "MIT",
-  "private": false
+  "license": "MIT"
 }

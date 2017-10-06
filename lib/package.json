@@ -1,0 +1,13 @@
+{
+  "name": "rn-bridge-monitor-lib",
+  "version": "0.0.1",
+  "description": "Rn lib for bridge messages monitor made easy",
+  "main": "index.js",
+  "author": "mfrachet <marvin.frachet@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "rx": "^4.1.0",
+    "socket.io-client": "^2.0.3"
+  }
+}
