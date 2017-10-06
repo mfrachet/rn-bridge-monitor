@@ -33,7 +33,8 @@ export default class TreeViewItem extends Component {
       return null;
     }
     const props = [];
-    for (const k in item.props) {
+    const keys = Object.keys(item.props);
+    keys.forEach((k) => {
       props.push(
         <span key={`item.name-${k}`}>
           <span className="key amber">{k}</span>={'"'}
@@ -41,7 +42,7 @@ export default class TreeViewItem extends Component {
           {'" '}
         </span>,
       );
-    }
+    });
     return props;
   }
 
