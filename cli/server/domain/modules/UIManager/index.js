@@ -96,7 +96,7 @@ class UIManager extends TreeModule {
     return new Command(command);
   }
 
-  replaceExistingNonRootView() {
+  replaceExistingNonRootView(command) {
     const { args } = command;
     const tagToRemove = args[0];
     const tagToMove = args[1];
