@@ -1,4 +1,4 @@
-const Constants = require("./../constants");
+const Constants = require('./../constants');
 
 class Controller {
   constructor(moduleContainer) {
@@ -10,7 +10,7 @@ class Controller {
     try {
       const module = this.moduleContainer.findOrRegister(command.module);
       const newCommand = module[command.method](command);
-      return module.dispatch(io, newCommand.toStr());
+      module.dispatch(io, newCommand.toStr());
     } catch (e) {
       console.log(command.module, command.method);
       console.log(e);

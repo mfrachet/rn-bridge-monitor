@@ -20,8 +20,8 @@ class View {
     this.parentId = parentId;
   }
 
-  removeChildrenAtIndex(index) {
-    console.log("remove child at index");
+  removeChildrenAtIndex() {
+    console.log('remove child at index', this);
   }
 
   insertChildrenAtIndex(index, child) {

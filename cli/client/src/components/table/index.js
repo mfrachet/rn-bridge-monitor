@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import TableHeader from "./../tableHeader";
-import TableItem from "./../tableItem";
-import Pagination from "./../pagination";
+import React, { Component } from 'react';
+import TableHeader from './../tableHeader';
+import TableItem from './../tableItem';
+import Pagination from './../pagination';
 
 const PAGE_SIZE = 10;
 
@@ -9,15 +9,13 @@ export default class Table extends Component {
   constructor(props) {
     super(props);
 
+    this._handlePageChange = this._handlePageChange.bind(this);
+
     this.state = {
       rows: props.rows,
-      currentDisplayed: props.rows.slice(0, PAGE_SIZE)
+      currentDisplayed: props.rows.slice(0, PAGE_SIZE),
     };
   }
-
-  _handlePageChange = rows => {
-    this.setState({ currentDisplayed: rows });
-  };
 
   componentWillReceiveProps({ rows }) {
     if (rows !== this.props.rows) {
@@ -25,16 +23,16 @@ export default class Table extends Component {
     }
   }
 
+  _handlePageChange(rows) {
+    this.setState({ currentDisplayed: rows });
+  }
+
   render() {
     const { columns } = this.props;
     const { currentDisplayed, rows } = this.state;
     return (
       <div className="little-size">
-        <Pagination
-          pageSize={PAGE_SIZE}
-          dataSet={rows}
-          onPageChange={this._handlePageChange}
-        />
+        <Pagination pageSize={PAGE_SIZE} dataSet={rows} onPageChange={this._handlePageChange} />
         <table className="table is-fullwidth is-bordered m-t">
           <thead className="bg-light">
             <tr className="light">
@@ -46,23 +44,19 @@ export default class Table extends Component {
             </tr>
           </thead>
           <tbody>
-            {currentDisplayed.map((row, index) => {
-              return (
-                <tr key={`row-${index}`}>
-                  {columns.map((column, i) => {
-                    return (
-                      <td key={`${column.name}-${i}`}>
-                        {column.component ? (
-                          <column.component item={row[column.name]} />
-                        ) : (
-                          <TableItem text={row[column.name]} />
-                        )}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
+            {currentDisplayed.map((row, index) => (
+              <tr key={`row-${index}`}>
+                {columns.map((column, i) => (
+                  <td key={`${column.name}-${i}`}>
+                    {column.component ? (
+                      <column.component item={row[column.name]} />
+                    ) : (
+                      <TableItem text={row[column.name]} />
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

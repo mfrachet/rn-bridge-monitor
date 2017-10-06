@@ -1,9 +1,6 @@
-import React from "react";
+import React from 'react';
 
-export default class TableItem extends React.Component {
-  render() {
-    const { text } = this.props;
-    const toDisplay = text instanceof Object ? JSON.stringify(text) : text;
-    return <div>{toDisplay}</div>;
-  }
+export default function ({ text }) {
+  const toDisplay = text instanceof Object ? JSON.stringify(text) : text;
+  return <div>{toDisplay}</div>;
 }

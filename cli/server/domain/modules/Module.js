@@ -1,4 +1,4 @@
-const Constants = require("./../../constants");
+const Constants = require('./../../constants');
 
 class Module {
   constructor(viewContainer) {

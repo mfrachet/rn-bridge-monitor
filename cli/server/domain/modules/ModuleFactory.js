@@ -1,6 +1,6 @@
-const UIManager = require("./UIManager");
-const AppRegistry = require("./AppRegistry");
-const RCTEventEmitter = require("./RCTEventEmitter");
+const UIManager = require('./UIManager');
+const AppRegistry = require('./AppRegistry');
+const RCTEventEmitter = require('./RCTEventEmitter');
 
 class ModuleFactory {
   constructor(viewContainer) {
@@ -8,15 +8,16 @@ class ModuleFactory {
   }
 
   create(moduleName) {
-    if (moduleName === "UIManager") {
+    if (moduleName === 'UIManager') {
       return new UIManager(this.viewContainer);
     }
-    if (moduleName === "AppRegistry") {
+    if (moduleName === 'AppRegistry') {
       return new AppRegistry(this.viewContainer);
     }
-    if (moduleName === "RCTEventEmitter") {
+    if (moduleName === 'RCTEventEmitter') {
       return new RCTEventEmitter(this.viewContainer);
     }
+    return null;
   }
 }
 

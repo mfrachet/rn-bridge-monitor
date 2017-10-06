@@ -1,6 +1,6 @@
-const Module = require("./../Module");
-const Constants = require("./../../../constants");
-const _ = require("lodash");
+const Module = require('./../Module');
+const Constants = require('./../../../constants');
+const _ = require('lodash');
 
 class TreeModule extends Module {
   constructor(viewContainer) {

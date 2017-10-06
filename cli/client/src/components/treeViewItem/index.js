@@ -1,14 +1,17 @@
-import React, { Component } from "react";
-import ExpandedButton from "./../expandButton";
-import "./style.css";
+import React, { Component } from 'react';
+import ExpandedButton from './../expandButton';
+import './style.css';
 
 export default class TreeViewItem extends Component {
   constructor(props) {
     super(props);
     this.state = { expanded: true };
+    this._onExpand = this._onExpand.bind(this);
   }
 
-  _onExpand = () => this.setState({ expanded: !this.state.expanded });
+  _onExpand() {
+    this.setState({ expanded: !this.state.expanded });
+  }
 
   mapChildren(item) {
     return (
@@ -36,7 +39,7 @@ export default class TreeViewItem extends Component {
           <span className="key amber">{k}</span>={'"'}
           <span className={`${k}-value attr`}>{String(item.props[k])}</span>
           {'" '}
-        </span>
+        </span>,
       );
     }
     return props;
@@ -45,23 +48,21 @@ export default class TreeViewItem extends Component {
   render() {
     const { item } = this.props;
     const { expanded } = this.state;
-    const background = !item.isResponding ? "bg-secondary" : "bg-primary";
-    const focused = item.isFocused && "focused";
-    const style = expanded ? { display: "block" } : { display: "none" };
+    const background = !item.isResponding ? 'bg-secondary' : 'bg-primary';
+    const focused = item.isFocused && 'focused';
+    const style = expanded ? { display: 'block' } : { display: 'none' };
     return (
       <div className="little-size">
         <div>
-          <div className={`identifier pull-left m-r ${background}`}>
-            {item.id}
-          </div>
+          <div className={`identifier pull-left m-r ${background}`}>{item.id}</div>
           <div className={`tree-line ${focused}`}>
             <ExpandedButton onExpand={this._onExpand} isExpanded={expanded}>
               <span className="element">
-                {"<"}
-                {item.name}{" "}
+                {'<'}
+                {item.name}{' '}
               </span>
               {this.mapProps(item)}
-              <span className="element">{">"}</span>
+              <span className="element">{'>'}</span>
             </ExpandedButton>
           </div>
         </div>

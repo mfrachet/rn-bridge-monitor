@@ -1,19 +1,21 @@
-import React, { Component } from "react";
-import Container from "./../../components/container";
-import Columns from "./../../components/columns";
-import Column from "./../../components/column";
-import Section from "./../../components/section";
-import Menu from "./../../components/menu";
-import Title from "./../../components/title";
-import Nothing from "./../../components/nothing";
-import ModuleView from "./../../components/moduleView";
-import "./style.css";
+import React, { Component } from 'react';
+import Container from './../../components/container';
+import Columns from './../../components/columns';
+import Column from './../../components/column';
+import Section from './../../components/section';
+import Menu from './../../components/menu';
+import Title from './../../components/title';
+import Nothing from './../../components/nothing';
+import ModuleView from './../../components/moduleView';
+import './style.css';
 
 export default class PageModule extends Component {
   constructor(props) {
     super(props);
     const { lines } = this.props;
     this.state = { currentItem: null, currentDisplayed: lines, menuItems: [] };
+    this._manageMenu = this._manageMenu.bind(this);
+    this._clickItem = this._clickItem.bind(this);
   }
 
   componentDidMount() {
@@ -25,20 +27,16 @@ export default class PageModule extends Component {
     this._manageMenu(lines);
   }
 
-  _manageMenu = lines => {
+  _manageMenu(lines) {
     const moduleNames = lines.map(line => line.module);
-    const menuItems = moduleNames.filter(
-      (item, index) => moduleNames.indexOf(item) === index
-    );
+    const menuItems = moduleNames.filter((item, index) => moduleNames.indexOf(item) === index);
     this.setState({ menuItems });
-  };
+  }
 
-  _clickItem = currentItem => {
-    const currentDisplayed = this.props.lines.filter(
-      item => item.module === currentItem
-    );
+  _clickItem(currentItem) {
+    const currentDisplayed = this.props.lines.filter(item => item.module === currentItem);
     this.setState({ currentItem, currentDisplayed });
-  };
+  }
 
   render() {
     const { currentItem, currentDisplayed, menuItems } = this.state;
@@ -53,10 +51,7 @@ export default class PageModule extends Component {
             <Column>
               <div className="border">
                 {currentItem ? (
-                  <ModuleView
-                    moduleName={currentItem}
-                    commands={currentDisplayed}
-                  />
+                  <ModuleView moduleName={currentItem} commands={currentDisplayed} />
                 ) : (
                   <Nothing text="No module selected" />
                 )}

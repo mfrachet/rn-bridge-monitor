@@ -1,60 +1,63 @@
-import React, { Component } from "react";
-import io from "socket.io-client";
-import "./App.css";
-import Navbar from "./components/navbar";
-import PageModule from "./page/module";
-import PageConsole from "./page/console";
-import PageTreeView from "./page/tree";
-import PageImprovement from "./page/improvement";
+import React, { Component } from 'react';
+import io from 'socket.io-client';
+import './App.css';
+import Navbar from './components/navbar';
+import PageModule from './page/module';
+import PageConsole from './page/console';
+import PageTreeView from './page/tree';
+import PageImprovement from './page/improvement';
 
-const SOCKET_PREFIX = "rn-bridge-monitor-";
+const SOCKET_PREFIX = 'rn-bridge-monitor-';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: "console",
+      page: 'console',
       lines: [],
       moduleTree: null,
-      modulesToImprove: []
+      modulesToImprove: [],
     };
-    this.socket = io("http://localhost:5000");
+
+    this._changePage = this._changePage.bind(this);
+    this._handleModuleTree = this._handleModuleTree.bind(this);
+    this._handleModulesToImprove = this._handleModulesToImprove.bind(this);
+    this._handleConsole = this._handleConsole.bind(this);
+    this._handleClear = this._handleClear.bind(this);
+    this.socket = io('http://localhost:5000');
   }
 
-  _changePage = page => {
+  componentDidMount() {
+    this.socket.on('user-disconnection', this._handleClear);
+    this.socket.on(`${SOCKET_PREFIX}new-console`, this._handleConsole);
+    this.socket.on(`${SOCKET_PREFIX}module-tree`, this._handleModuleTree);
+    this.socket.on(`${SOCKET_PREFIX}module-improve`, this._handleModulesToImprove);
+  }
+
+  _changePage(page) {
     this.setState({ page });
-  };
+  }
 
-  _handleModuleTree = moduleTree => {
+  _handleModuleTree(moduleTree) {
     this.setState({ moduleTree });
-  };
+  }
 
-  _handleModulesToImprove = module => {
+  _handleModulesToImprove(module) {
     this.setState({
-      modulesToImprove: [...this.state.modulesToImprove, module]
+      modulesToImprove: [...this.state.modulesToImprove, module],
     });
-  };
+  }
 
-  _handleConsole = message => {
+  _handleConsole(message) {
     this.setState({ lines: [...this.state.lines, message] });
-  };
+  }
 
-  _handleClear = () => {
+  _handleClear() {
     this.setState({
       lines: [],
       moduleTree: null,
-      modulesToImprove: []
+      modulesToImprove: [],
     });
-  };
-
-  componentDidMount() {
-    this.socket.on("user-disconnection", this._handleClear);
-    this.socket.on(`${SOCKET_PREFIX}new-console`, this._handleConsole);
-    this.socket.on(`${SOCKET_PREFIX}module-tree`, this._handleModuleTree);
-    this.socket.on(
-      `${SOCKET_PREFIX}module-improve`,
-      this._handleModulesToImprove
-    );
   }
 
   render() {
@@ -62,12 +65,10 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar onSelect={this._changePage} onClear={this._handleClear} />
-        {page === "module" && <PageModule lines={lines} />}
-        {page === "console" && (
-          <PageConsole lines={lines} clearConsole={this._handleClear} />
-        )}
-        {page === "tree" && <PageTreeView modules={moduleTree} />}
-        {page === "improve" && <PageImprovement modules={modulesToImprove} />}
+        {page === 'module' && <PageModule lines={lines} />}
+        {page === 'console' && <PageConsole lines={lines} clearConsole={this._handleClear} />}
+        {page === 'tree' && <PageTreeView modules={moduleTree} />}
+        {page === 'improve' && <PageImprovement modules={modulesToImprove} />}
       </div>
     );
   }

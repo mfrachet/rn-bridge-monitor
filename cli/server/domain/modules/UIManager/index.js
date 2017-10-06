@@ -1,14 +1,12 @@
-const TreeModule = require("./../TreeModule");
-const Constants = require("./../../../constants");
-const View = require("./../../views/View");
-const Command = require("./../../command/Command");
+const TreeModule = require('./../TreeModule');
+const View = require('./../../views/View');
+const Command = require('./../../command/Command');
 
 /**
  * React Native bridge methods
  */
 class UIManager extends TreeModule {
   clearJSResponder(command) {
-    const { args } = command;
     this.viewContainer.clearResponders();
 
     return new Command(command);
@@ -30,14 +28,12 @@ class UIManager extends TreeModule {
   }
 
   _removeChildren(view, indices) {
-    const newChilds = view.children.filter(
-      (child, index) => indices.indexOf(index) === -1
-    );
+    const newChilds = view.children.filter((child, index) => indices.indexOf(index) === -1);
     view.setChildren(newChilds);
   }
 
   _moveChildren() {
-    console.log("Move children of ManageChildren is now needed");
+    console.log('Move children of ManageChildren is now needed');
   }
 
   _addChildren(view, childTags, indices) {
@@ -75,8 +71,6 @@ class UIManager extends TreeModule {
   }
 
   measure(command) {
-    const { args } = command;
-    const view = this.viewContainer.find(args[0]);
     return new Command(command);
   }
 

@@ -1,5 +1,5 @@
-const ModuleFactory = require("./ModuleFactory");
-const ViewContainer = require("./../views/ViewContainer");
+const ModuleFactory = require('./ModuleFactory');
+const ViewContainer = require('./../views/ViewContainer');
 
 class ModuleContainer {
   constructor() {

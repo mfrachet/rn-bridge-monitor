@@ -14,7 +14,9 @@ class ViewContainer {
   }
 
   registerFocus(view) {
-    this.views.forEach(view => (view.isFocused = false));
+    this.views.forEach((v) => {
+      v.isFocused = false;
+    });
     view.isFocused = true;
   }
 
@@ -23,7 +25,7 @@ class ViewContainer {
    * @return {[type]} [description]
    */
   clearResponders() {
-    this.responders.forEach(view => {
+    this.responders.forEach((view) => {
       view.isResponding = false;
     });
     this.responders = [];

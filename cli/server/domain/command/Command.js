@@ -1,10 +1,10 @@
-const sizeof = require("object-sizeof");
-const moment = require("moment");
+const sizeof = require('object-sizeof');
+const moment = require('moment');
 
 class Command {
   constructor(command) {
     this.command = command;
-    this.date = moment().format("h:mm:ss:SSS");
+    this.date = moment().format('h:mm:ss:SSS');
   }
 
   toStr() {

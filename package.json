@@ -7,8 +7,7 @@
     "rnbridgemonitor": "./cli/index.js"
   },
   "scripts": {
-    "format":
-      "prettier-eslint --write \"cli/**/*.js\" && prettier-eslint --write \"lib/**/*.js\"",
+    "format": "prettier-eslint --write \"cli/**/*.js\" && prettier-eslint --write \"lib/**/*.js\"",
     "lint": "eslint ./cli && eslint ./lib"
   },
   "dependencies": {

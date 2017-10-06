@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
-export default function({ children }) {
+export default function ({ children }) {
   return <div className="subtitle secondary">{children}</div>;
 }

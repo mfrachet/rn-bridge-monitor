@@ -1,7 +1,7 @@
-const Module = require("./../Module");
-const Constants = require("./../../../constants");
-const View = require("./../../views/View");
-const Command = require("./../../command/Command");
+const Module = require('./../Module');
+const Constants = require('./../../../constants');
+const View = require('./../../views/View');
+const Command = require('./../../command/Command');
 
 class AppRegistry extends Module {
   dispatch(io, command) {

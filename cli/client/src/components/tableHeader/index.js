@@ -1,8 +1,5 @@
-import React from "react";
+import React from 'react';
 
-export default class TableHeader extends React.Component {
-  render() {
-    const { column } = this.props;
-    return <div>{column}</div>;
-  }
+export default function ({ column }) {
+  return <div>{column}</div>;
 }
