@@ -1,4 +1,5 @@
 {
+  "name": "rn-bridge-monitor-server",
   "version": "0.0.1",
   "description": "Server for bridge messages monitor",
   "main": "index.js",

@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+const chalk = require("chalk");
 
 const log = (categ, message) => {
   const coloredCateg = chalk.green(`[${categ}] `);
@@ -26,5 +26,5 @@ module.exports = {
   log,
   logWarn,
   logImportant,
-  logError,
+  logError
 };

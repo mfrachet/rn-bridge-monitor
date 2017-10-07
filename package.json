@@ -3,11 +3,15 @@
   "version": "0.0.1",
   "description": "Bridge messages monitoring made easy",
   "main": "index.js",
+  "author": "mfrachet <marvin.frachet@gmail.com>",
+  "license": "MIT",
   "bin": {
     "rnbridgemonitor": "./cli/index.js"
   },
   "scripts": {
-    "format": "prettier-eslint --write \"cli/**/*.js\" && prettier-eslint --write \"lib/**/*.js\"",
+    "bootstrap": "lerna bootstrap",
+    "format":
+      "prettier-eslint --write \"cli/**/*.js\" && prettier-eslint --write \"lib/**/*.js\"",
     "lint": "eslint ./cli && eslint ./lib"
   },
   "dependencies": {
@@ -19,6 +23,7 @@
     "prettier": "^1.6.1",
     "prettier-eslint-cli": "^4.3.0"
   },
-  "author": "mfrachet <marvin.frachet@gmail.com>",
-  "license": "MIT"
+  "devDependencies": {
+    "lerna": "^2.4.0"
+  }
 }
