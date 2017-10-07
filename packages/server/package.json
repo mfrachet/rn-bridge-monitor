@@ -1,4 +1,5 @@
 {
+  "name": "rn-bridge-monitor-server",
   "version": "0.0.1",
   "description": "Server for bridge messages monitor",
   "main": "index.js",
@@ -6,11 +7,12 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "chalk": "^2.1.0",
     "express": "^4.16.1",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "object-sizeof": "^1.2.0",
-    "socket.io": "^2.0.3",
-    "opn": "^5.1.0"
+    "opn": "^5.1.0",
+    "socket.io": "^2.0.3"
   }
 }

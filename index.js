@@ -1,4 +1,4 @@
-import BridgeMonitor, { SocketWriter as SocketWrite } from "./lib";
+import BridgeMonitor, { SocketWriter as SocketWrite } from './packages/lib';
 
 export const SocketWriter = SocketWrite;
 export default BridgeMonitor;
