@@ -6,13 +6,12 @@
   "author": "mfrachet <marvin.frachet@gmail.com>",
   "license": "MIT",
   "bin": {
-    "rnbridgemonitor": "./cli/index.js"
+    "rnbridgemonitor": "./packages/cli/index.js"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "format":
-      "prettier-eslint --write \"cli/**/*.js\" && prettier-eslint --write \"lib/**/*.js\"",
-    "lint": "eslint ./cli && eslint ./lib"
+    "format": "prettier-eslint --write \"packages/**/*.js\"",
+    "lint": "eslint ./packages && eslint ./packages"
   },
   "dependencies": {
     "eslint": "^4.1.1",
