@@ -10,12 +10,12 @@
 
 # Content
 
-* <a href="#usage">How to use it ?</a>
+* <a href="#how-to-use-it-">How to use it ?</a>
 * [What's inside ?](./docs/INSIDE.md)
 * [Why to create such a module ?](./docs/WHY.md)
 
 
-<h1 name="howto" id="howto">How to use it ?</h1>
+# How to use it ?
 
 ### Installation
 
@@ -40,7 +40,7 @@ RnBridgeMonitor
   });
 ```
 
-See the message composition on [What's inside ?](./docs/INSIDE.md#messages)
+See the message composition on [What's inside ?](./docs/INSIDE.md)
 
 ### In your code using the Web UI
 
@@ -69,4 +69,4 @@ $ ./node_modules/.bin/rnbridgemonitor start
 
 It will start a Web UI at http://localhost:5000
 
-See configurations details on [What's inside ?](./docs/INSIDE.md#configs)
+See configurations details on [What's inside ?](./docs/INSIDE.md)

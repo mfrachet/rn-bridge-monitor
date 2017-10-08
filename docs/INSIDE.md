@@ -17,7 +17,7 @@ $ rnbridgemonitor start -p 3000
 #### Choosing the server location from the React Native application
 
 While running with Android emulators, it's not possible to use the default loopback address to access the server.
-The default IP address of this project is set to `http://localhost`. You can change it with your local network ip address
+The default IP address set inside this project is `http://localhost`. You can change it with your local network ip address
 to be able to use the Web UI.
 
 From the React Native root file :
