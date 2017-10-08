@@ -10,12 +10,12 @@
 
 # Content
 
-* <a href="#usage">How to use it ?</a>
+* <a href="#how-to-use-it-">How to use it ?</a>
 * [What's inside ?](./docs/INSIDE.md)
 * [Why to create such a module ?](./docs/WHY.md)
 
 
-<h1 name="#howto">How to use it ?</h1>
+# How to use it ?
 
 ### Installation
 
@@ -25,28 +25,33 @@ https://docs.npmjs.com/files/package.json#dependencies
 
 ### In your code using RxJs
 
-Add these line on your root file :
+If you would like to only use the library to compute and read messages using RX, you may add the following lines at the top of your root file :
 
 ```javascript
 import MessageQueue from "react-native/Libraries/BatchedBridge/MessageQueue";
 import RnBridgeMonitor from "rn-bridge-monitor";
 
-RnBridgeMonitor.prepareMobile(MessageQueue)
+RnBridgeMonitor
+  .prepareMobile(MessageQueue)
   .stream()
-  .subscribe((msg) => {
-    console.log('RxJs subscribe call. Message received: ', msg);
+  .filter(yourFilterFunction) // apply any RX operator
+  .subscribe((message) => {
+    console.log('RxJs subscribe call. Message received: ', message);
   });
 ```
 
+See the message composition on [What's inside ?](./docs/INSIDE.md)
+
 ### In your code using the Web UI
 
-Add these line on your root file :
+If you prefer to listen to bridge messages using a Web UI, let's add the following lines at the top of your root file :
 
 ```javascript
 import MessageQueue from "react-native/Libraries/BatchedBridge/MessageQueue";
 import RnBridgeMonitor, { SocketWriter } from "rn-bridge-monitor";
 
-RnBridgeMonitor.prepareMobile(MessageQueue)
+RnBridgeMonitor
+  .prepareMobile(MessageQueue)
   .stream()
   .subscribe(SocketWriter.write());
 ```
@@ -54,7 +59,14 @@ RnBridgeMonitor.prepareMobile(MessageQueue)
 And run the following command at your project root :
 
 ```
+$ rnbridgemonitor start
+```
+or if it doesn't work :
+
+```
 $ ./node_modules/.bin/rnbridgemonitor start
 ```
 
 It will start a Web UI at http://localhost:5000
+
+See configurations details on [What's inside ?](./docs/INSIDE.md)
