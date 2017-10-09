@@ -1,5 +1,5 @@
 {
-  "name": "rn-bridge-monitor-lib",
+  "name": "rn-bridge-monitor",
   "version": "0.0.1",
   "description": "Rn lib for bridge messages monitor made easy",
   "main": "index.js",
