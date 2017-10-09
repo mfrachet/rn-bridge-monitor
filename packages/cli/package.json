@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "chalk": "^2.1.0",
-    "rn-bridge-monitor-server": "^0.0.1",
+    "rn-bridge-monitor-ui": "^0.0.1",
     "yargs": "^9.0.1"
   }
 }

@@ -1,8 +1,8 @@
 {
-  "name": "rn-bridge-monitor-client",
+  "name": "rn-bridge-monitor-ui",
   "version": "0.0.1",
-  "description": "Web client for bridge messages monitor",
-  "main": "index.js",
+  "description": "Web UI for bridge messages monitor",
+  "main": "./server/index.js",
   "author": "mfrachet <marvin.frachet@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -11,7 +11,13 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.13",
-    "socket.io-client": "^2.0.3"
+    "socket.io-client": "^2.0.3",
+    "chalk": "^2.1.0",
+    "express": "^4.16.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "object-sizeof": "^1.2.0",
+    "opn": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
