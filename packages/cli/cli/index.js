@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const startServer = require('rn-bridge-monitor-server');
+const startServer = require('../server');
 const yargs = require('yargs');
 
 const DEFAULT_PORT = 5000;
