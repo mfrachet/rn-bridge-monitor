@@ -1,6 +1,6 @@
 {
   "name": "rn-bridge-monitor-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Web UI for bridge messages monitor",
   "bin": {
     "rnbridgemonitor": "./cli/index.js"
