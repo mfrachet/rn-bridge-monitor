@@ -19,9 +19,16 @@
 
 ### Installation
 
-The module is currently not available on NPM. Thus, you can use this github repo as a source for the module using the following documentation :
+```
+$ npm install --save-dev rn-bridge-monitor
+```
 
-https://docs.npmjs.com/files/package.json#dependencies
+or
+
+```
+$ yarn add -D rn-bridge-monitor
+```
+
 
 ### In your code using RxJs
 
@@ -54,6 +61,18 @@ RnBridgeMonitor
   .prepareMobile(MessageQueue)
   .stream()
   .subscribe(SocketWriter.write());
+```
+
+Install the CLI :
+
+```
+$ npm install --save-dev rn-bridge-monitor-cli
+```
+
+or
+
+```
+$ yarn add -D rn-bridge-monitor-cli
 ```
 
 And run the following command at your project root :
